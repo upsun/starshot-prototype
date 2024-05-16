@@ -23,13 +23,17 @@ applications:
         #         - blackfire
         #     # - "php83Packages.composer"
 
+        # relationships:
+        #     mariadb:
+        #         service: "mariadb"
+        #         endpoint: "mariadb:mysql"
+        #     redis:
+        #         service: "redis"
+        #         endpoint: "redis:redis"
+
         relationships:
-            mariadb:
-                service: "mariadb"
-                endpoint: "mariadb:mysql"
-            redis:
-                service: "redis"
-                endpoint: "redis:redis"
+            database: 'db:mysql'
+            redis: 'cache:redis'
 
         hooks:
             build: |
