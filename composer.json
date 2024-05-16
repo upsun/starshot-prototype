@@ -44,7 +44,8 @@
         "drupal/uli_custom_workflow": "^1.0",
         "drupal/webform": "^6.2",
         "drush/drush": "^12.5",
-        "oomphinc/composer-installers-extender": "^2"
+        "oomphinc/composer-installers-extender": "^2",
+        "platformsh/config-reader": "^2.4"
     },
     "require-dev": {
         "drupal/core-dev": "^10.3",

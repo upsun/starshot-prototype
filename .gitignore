@@ -3,3 +3,6 @@
 /patches.lock.json
 /vendor
 /web
+!/web/sites/default/settings.php
+!/web/sites/default/settings.upsun.php
+/drupal10
