@@ -1,44 +1,38 @@
 applications:
     starshot:
 
-        build:
-            flavor: composer
-        type: "php:8.2"
-        dependencies:
-            php:
-                composer/composer: '^2.1'
-        runtime:
-            extensions:
-                - redis
-                - sodium
-                - apcu
-                - blackfire
-
-        # stack:
-        #     - "php@8.3"
-        #       extensions:
+        # build:
+        #     flavor: composer
+        # type: "php:8.2"
+        # dependencies:
+        #     php:
+        #         composer/composer: '^2.1'
+        # runtime:
+        #     extensions:
         #         - redis
         #         - sodium
         #         - apcu
         #         - blackfire
-        #     # - "php83Packages.composer"
 
-        # relationships:
-        #     mariadb:
-        #         service: "mariadb"
-        #         endpoint: "mariadb:mysql"
-        #     redis:
-        #         service: "redis"
-        #         endpoint: "redis:redis"
+        stack:
+            - "php@8.3"
+              extensions:
+                - redis
+                - sodium
+                - apcu
+                - blackfire
+            - "php83Packages.composer"
 
         relationships:
-            database: 'db:mysql'
-            redis: 'cache:redis'
+            database: 
+                service: db 
+            redis: 
+                service: cache
 
         hooks:
             build: |
                 set -eux
-                # composer --no-ansi --no-interaction install --no-progress --prefer-dist --optimize-autoloader
+                composer --no-ansi --no-interaction install --no-progress --prefer-dist --optimize-autoloader
             deploy: |
                 set -eux
                 php ./drush/generate_drush_yml.php
