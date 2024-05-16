@@ -41,9 +41,9 @@ applications:
                 # composer --no-ansi --no-interaction install --no-progress --prefer-dist --optimize-autoloader
             deploy: |
                 set -eux
-                php ./drush/platformsh_generate_drush_yml.php
+                php ./drush/generate_drush_yml.php
                 cd web
-                bash $PLATFORM_APP_DIR/drush/platformsh_deploy_drupal.sh
+                bash $PLATFORM_APP_DIR/drush/deploy_drupal.sh
 
         mounts:
             '/web/sites/default/files':
