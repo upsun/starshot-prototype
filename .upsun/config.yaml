@@ -109,7 +109,7 @@ services:
 routes:
     "https://{default}/":
         type: upstream
-        upstream: "drupal:http"
+        upstream: "starshot:http"
         cache:
             enabled: true
             cookies: ['/^SS?ESS/', '/^Drupal.visitor/']
