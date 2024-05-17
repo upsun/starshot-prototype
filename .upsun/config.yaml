@@ -26,7 +26,7 @@ applications:
 
         relationships:
             database: 
-                service: db 
+                service: dbb
             redis: 
                 service: cache
 
@@ -95,7 +95,7 @@ applications:
                     start: 'cd web ; drush core-cron'
 
 services:
-    db:
+    dbb:
         type: mariadb:11.2
 
     cache:

@@ -16,5 +16,9 @@ if [ -n "$(drush status --field=bootstrap)" ]; then
   fi
 else
   echo "Drupal not installed. Skipping standard Drupal deploy steps"
+  cd $PLATFORM_APP_DIR
   composer run-script drupal:install
+  cd web
+  drush -y cache-rebuild
+  drush -y updatedb
 fi
