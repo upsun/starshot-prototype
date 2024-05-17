@@ -22,7 +22,7 @@ applications:
 
             deploy: |
                 set -eux
-                # cp web/sites/default/settings.php
+                cat settings.php > web/sites/default/settings.php
                 php ./drush/generate_drush_yml.php
                 cd web
                 bash $PLATFORM_APP_DIR/drush/deploy_drupal.sh
