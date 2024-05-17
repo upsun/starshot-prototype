@@ -18,8 +18,11 @@ applications:
             build: |
                 set -eux
                 composer --no-ansi --no-interaction install --no-progress --prefer-dist --optimize-autoloader
+                ln -s config/settings.php web/sites/default/settings.php
+
             deploy: |
                 set -eux
+                # cp web/sites/default/settings.php
                 php ./drush/generate_drush_yml.php
                 cd web
                 bash $PLATFORM_APP_DIR/drush/deploy_drupal.sh
@@ -43,6 +46,9 @@ applications:
             '/.console':
                 source: storage
                 source_path: 'console'
+            '/config':
+                source: storage
+                source_path: 'config'
 
         web:
             locations:
