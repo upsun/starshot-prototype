@@ -1,19 +1,5 @@
 applications:
-    starshot:
-
-        # build:
-        #     flavor: composer
-        # type: "php:8.2"
-        # dependencies:
-        #     php:
-        #         composer/composer: '^2.1'
-        # runtime:
-        #     extensions:
-        #         - redis
-        #         - sodium
-        #         - apcu
-        #         - blackfire
-
+    starshotb:
         stack:
             - "php@8.3":
                 extensions:
@@ -21,12 +7,10 @@ applications:
                   - sodium
                   - apcu
                   - blackfire
-            #       - mbstring
-            # - "php83Packages.composer"
 
         relationships:
             database: 
-                service: dbb
+                service: db
             redis: 
                 service: cache
 
@@ -95,7 +79,7 @@ applications:
                     start: 'cd web ; drush core-cron'
 
 services:
-    dbb:
+    db:
         type: mariadb:11.2
 
     cache:
