@@ -16,4 +16,5 @@ if [ -n "$(drush status --field=bootstrap)" ]; then
   fi
 else
   echo "Drupal not installed. Skipping standard Drupal deploy steps"
+  composer run-script drupal:install
 fi
