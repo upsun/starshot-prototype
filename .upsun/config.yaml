@@ -1,5 +1,5 @@
 applications:
-    starshotb:
+    starshot:
         stack:
             - "php@8.3":
                 extensions:
@@ -18,11 +18,11 @@ applications:
             build: |
                 set -eux
                 composer --no-ansi --no-interaction install --no-progress --prefer-dist --optimize-autoloader
-                ln -s config/settings.php web/sites/default/settings.php
+                # ln -s config/settings.php web/sites/default/settings.php
 
             deploy: |
                 set -eux
-                cat settings.php > web/sites/default/settings.php
+                # cat settings.php > web/sites/default/settings.php
                 php ./drush/generate_drush_yml.php
                 cd web
                 bash $PLATFORM_APP_DIR/drush/deploy_drupal.sh
@@ -94,7 +94,7 @@ services:
 routes:
     "https://{default}/":
         type: upstream
-        upstream: "starshotb:http"
+        upstream: "starshot:http"
         cache:
             enabled: true
             cookies: ['/^SS?ESS/', '/^Drupal.visitor/']
