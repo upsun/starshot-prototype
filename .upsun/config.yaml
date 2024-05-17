@@ -1,5 +1,5 @@
 applications:
-    starshot:
+    starshotb:
         stack:
             - "php@8.3":
                 extensions:
@@ -88,7 +88,7 @@ services:
 routes:
     "https://{default}/":
         type: upstream
-        upstream: "starshot:http"
+        upstream: "starshotb:http"
         cache:
             enabled: true
             cookies: ['/^SS?ESS/', '/^Drupal.visitor/']
