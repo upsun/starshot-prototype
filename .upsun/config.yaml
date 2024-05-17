@@ -21,9 +21,8 @@ applications:
                   - sodium
                   - apcu
                   - blackfire
-                  - mbstring
-            - "drush"
-            - "php83Packages.composer"
+            #       - mbstring
+            # - "php83Packages.composer"
 
         relationships:
             database: 
