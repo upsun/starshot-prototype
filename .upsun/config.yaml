@@ -22,6 +22,7 @@ applications:
                   - apcu
                   - blackfire
                   - mbstring
+            - "drush"
             - "php83Packages.composer"
 
         relationships:
